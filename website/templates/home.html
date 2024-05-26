@@ -1,0 +1,19 @@
+<!-- Starting Tags -->
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!-- Filter -->
+<div class="container my-3">
+{% include "filter.html" %}
+</div>
+<!-- Content -->
+<div class="container">
+{% include "content.html" %}
+</div>
+<!-- Pagination -->
+<div class="container">
+{% include "pagination.html" %}
+</div>
+<!-- End Tags -->
+{% endblock %}
+<!-- # -->

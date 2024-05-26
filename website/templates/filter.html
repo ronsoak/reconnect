@@ -1,0 +1,11 @@
+<ul class="nav nav-pills justify-content-center nav-fill">
+    <li class="nav-item">
+      <a class="nav-link" {% if filtr == 0 %} style="background-color: #ebeb5d; color: black;"{% else %} style="color: white;" {% endif %} href="/">Popular</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" {% if filtr == 1 %} style="background-color: #ebeb5d; color: black;"{% else %} style="color: white;" {% endif %} href="new">Latest</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" {% if filtr == 2 %} style="background-color: #ebeb5d; color: black;"{% else %} style="color: white;" {% endif %} href="curated">Featured</a>
+    </li>
+  </ul>

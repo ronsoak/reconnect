@@ -1,0 +1,60 @@
+:root {
+    --PrimaryDark: #2B2B2B;
+    --SecondaryDark: #3f3f3f;
+    --PrimaryYellow: #ebeb5d;
+    --SecondaryYellow: #f4f296;
+}
+body {
+    background-color: var(--PrimaryDark) !important;
+    color: white !important;
+  }
+/* Overrides */
+.dropdown-item:hover {
+    color: var(--PrimaryDark) !important;
+    background-color: var(--PrimaryYellow) !important;
+}
+input::placeholder{
+    color: white !important;
+}
+input, select, textarea{
+    color: white !important;
+}
+/* Id's */
+#outer{
+    max-width: 720px !important;
+  }
+#searchButton.btn:hover{
+    background-color: var(--SecondaryDark) !important;
+    border: 1px solid var(--PrimaryYellow);
+}
+/* Classes */
+.B_none{
+    border: none !important;
+}
+.BT_Yellow{
+    border-top: 1px solid var(--PrimaryYellow);
+}
+.BG_PrimDark{
+    background-color: var(--PrimaryDark) !important;
+}
+.BG_SecDark{
+    background-color: var(--SecondaryDark) !important;
+}
+.BG_PrimYellow{
+    background-color: var(--PrimaryYellow) !important;
+}
+.TC_PrimYellow{
+    color: var(--PrimaryYellow) !important;
+}
+.TC_SecYellow{
+    color: var(--SecondaryYellow) !important;
+}
+.TC_White{
+    color: white !important;
+}
+.TD_None{
+    text-decoration: none !important;
+}
+.page-link{
+    border: none !important;
+}

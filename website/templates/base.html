@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reconnect</title>
+    {% load django_bootstrap5 %}
+    {% load static %}
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'CSS/custom.css' %}" />  
+</head>
+  <body>
+    <div id="outer" class="container">
+    <!-- Navigation -->
+    <div class="container sticky-top py-3 BG_PrimDark">
+    {% include "navigation.html" %}
+    </div>
+    <!-- Content -->
+    {% block content %} {% endblock %}
+    </div>
+  </body>
+  <script>
+    // Voting 
+    async function castVote(id,session,csrf_token){
+        // Link Click
+        const vote = new Request(
+            "/vote/l/"+id+"/"+session+"/",
+                {
+                method: 'POST',
+                headers: {'X-CSRFToken': csrf_token},
+                mode: 'same-origin' // Do not send CSRF token to another domain.
+                }
+            )
+        fetch(vote)
+    }
+  </script>
+</html>

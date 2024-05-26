@@ -1,0 +1,14 @@
+# Makes Requirements File 
+pip freeze > requirements.txt
+
+
+# Setup 
+django-admin startproject <TopLevel>
+python3 manage.py startapp <SubLevel>
+
+# Commands
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
+
+
