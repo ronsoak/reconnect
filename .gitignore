@@ -1,0 +1,15 @@
+# settings file
+settings.py
+
+# cache folders
+__pycache__/
+migrations/
+.vscode
+.DS_STORE
+
+# Python Files
+*__init__.py 
+manage.py
+
+#DB 
+db.sqlite3
