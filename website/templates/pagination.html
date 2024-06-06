@@ -6,13 +6,13 @@
             {% else %} 
             <ul class="pagination pagination-lg justify-content-start">
                 {% if page_obj.has_previous %}
-                  <li class="page-item"><a class="page-link BG_SecDark TC_PrimYellow" href="?page={{ page_obj.previous_page_number }}">Back</a></li>
+                  <li class="page-item"><a class="page-link BG_SecDark TC_PrimYellow" href="?page={{ page_obj.previous_page_number }}"><</a></li>
                 {% endif %}
             {% endif %}
             </ul>
         </div>
         <div class="col col-6 justify-content-center">
-            <div class="text-center TC_SecYellow"><small>Developed by <a class="TC_PrimYellow" href="www.antranaut.com" target="_blank">Alex Antra</a> <br> Designed by <a class="TC_PrimYellow" href="https://samuelgerardtabak.myportfolio.com/" target="_blank">Micah Tabak</a></small></div>
+            <div class="text-center TC_Grey"><small class="align-top">Developed by <a class="TC_Grey" href="www.antranaut.com" target="_blank">Alex Antra</a> <br> Designed by <a class="TC_Grey" href="https://samuelgerardtabak.myportfolio.com/" target="_blank">Micah Tabak</a></small></div>
         </div>
         <div class="col">
             <ul class="pagination pagination-lg justify-content-end">
@@ -20,7 +20,7 @@
                 <div></div>
             {% else %}
                 {% if page_obj.has_next %}
-                <li class="page-item"><a class="page-link BG_SecDark TC_PrimYellow" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link BG_SecDark TC_PrimYellow B_White" href="?page={{ page_obj.next_page_number }}">></a></li>
                 {% endif %}
               {% endif %}
             </ul>

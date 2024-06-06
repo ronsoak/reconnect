@@ -3,23 +3,18 @@
 {% block content %}
 {% load static %}
 <div class="container py-3">
-    <span class="align-middle fs-3">RSS Feeds</span>
-    <!-- Blurb -->
-    <div class="card my-3 p-3 BG_SecDark">
-        <p class="TC_White">
-            Stay up to date with what's new on Reconnect by following our <a href="{% url 'Feed' %}" class="TC_PrimYellow" target="_blank">RSS Feed</a>.
-            <br><br>
-            The feed contains all of the articles flowing through Reconnect every day.
-            <br><br>
-            If your interested in following a site in particular their RSS urls are listed below.
-        </p>
+    <div class="card my-3 p-2 BG_SecDark">
+        <p class="text-center TC_White fs-2 pt-2 mb-1">RSS Feeds</p>
+        <p class="TC_Grey px-4">Stay up to date with what's new on Reconnect by following our <a href="{% url 'Feed' %}" class="TC_White TD_None" target="_blank">RSS Feed</a>.</p>
+        <p class="TC_Grey px-4">The feed contains all of the articles flowing through Reconnect every day.</p>
+        <p class="TC_Grey px-4">If your interested in following a site in particular their RSS urls are listed below.</p>
     </div>
     <!-- Results -->
-    <div class="container py-3 px-0 BT_Yellow">
+    <div class="container py-3 px-0">
         {% for s in sites %}
         <div class="card mb-3 p-2 BG_SecDark TC_White">
             <h6 class="card-title p-0">{{s.name}}</h6>
-            <p class="card-text"><a href="{{s.feed}}" class="TC_PrimYellow" target="_blank">{{s.feed}}</a></p>
+            <p class="card-text"><a href="{{s.feed}}" class="TC_White TD_None" target="_blank">{{s.feed}}</a></p>
           </div>
         {% empty %}
         <p>no results</p>

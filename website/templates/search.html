@@ -3,21 +3,21 @@
 {% block content %}
 {% load static %}
 <div class="container py-3 TC_White">
-    <span class="align-middle fs-3">Search</span>
-    <!-- Search bar -->
-    <div class="container p-0 mt-3">
+    <div class="card my-3 p-2 BG_SecDark">
+        <p class="text-center TC_White fs-2 p-2">Search</p>
+        <p class="TC_Grey text-center px-4">Search will look for keywords in article titles and website names</p>
     <form action="{% url 'search' %}" method="POST">
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 px-3">
         {% csrf_token %}
-        <input type="text" class="form-control rounded-start BG_SecDark B_none" placeholder="Enter search terms" name="Search Terms" type="text"  aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input type="text" class="form-control rounded-start BG_SecDark B_White" placeholder="Enter search terms" name="Search Terms" type="text"  aria-label="searchButton">
         <button id="searchButton" class="btn BG_PrimYellow" type="submit" id="button-addon2">Search</button>
       </div>
     </form>
     </div>
     <!-- Results -->
-    <div class="container py-3 px-0 BT_Yellow">
+    <div class="container py-3 px-0">
         {% for r in results %}
-        <div class="card mb-3 BG_SecDark">
+        <div class="card mb-3 BG_SecDark B_White">
             <div class="row g-0">
               <div class="col-1" style="width: 100px;">
                 <div class="rounded-start" style="background-image: url({{r.image_url}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
@@ -25,14 +25,16 @@
               <div class="col">
                 <div class="card-body">
                   <h6 class="card-title"><a href="{{r.url}}" target="_blank" onclick="castVote('{{r.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None">{{r.title}}</a></h6>
-                  <p class="card-text"><small class="text-muted"><a href="/more/{{r.site.id}}" target="_blank" class="TC_SecYellow TD_None">{{r.site}}</a>
-                    </small></p>
+                  <p class="card-text"><small class="text-muted letterspace"><a href="/more/{{r.site.id}}" target="_blank" class="TC_SecYellow TD_None">{{r.site}}</a>
+                    </small>
+                    <span class="TC_Grey px-2">{{r.published|date:'d M Y'}}</span>
+                </p>
                 </div>
               </div>
             </div>
           </div>
         {% empty %}
-        <p>no results</p>
+        <!-- <p>no results</p> -->
         {% endfor %}
     </div>
 </div>

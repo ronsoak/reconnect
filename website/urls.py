@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.views.generic.base import TemplateView #needed for robots
 
 urlpatterns = [
     path('',views.Home,{"filtr": 0},name='home'),
@@ -10,6 +11,9 @@ urlpatterns = [
     path('about',views.About, name='about'),
     path('feeds',views.RSS, name='feeds'),
     path('more/<uuid:st_id>',views.More, name='more'),
+
+    # Robots
+    path("robots.txt",TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 
     # Error Pages
     path('400',views.page404, name='400Page'),

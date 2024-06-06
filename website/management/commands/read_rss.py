@@ -52,20 +52,24 @@ class Command(BaseCommand):
                         # Media Content Image
                             post_image = str(c.media_content[0]["href"])
                         except:
-                            # Scan the content for the first Img reference
                             try:
-                                item_content = str(c.content)
-                                soup1 = BeautifulSoup(item_content, 'html.parser')
-                                image1 = soup1.find('img')
-                                post_image = image1['src']
+                                # Media Content Image
+                                post_image = str(c.media_content[0]["url"])
                             except:
-                                # Scan the description for the first Img reference
+                                # Scan the content for the first Img reference
                                 try:
-                                    item_desc = str(c.description)
-                                    soup2 = BeautifulSoup(item_desc, 'html.parser')
-                                    image2 = soup2.find('img')
-                                    post_image = image2['src']
+                                    item_content = str(c.content)
+                                    soup1 = BeautifulSoup(item_content, 'html.parser')
+                                    image1 = soup1.find('img')
+                                    post_image = image1['src']
                                 except:
-                                    post_image = str(logo)
+                                    # Scan the description for the first Img reference
+                                    try:
+                                        item_desc = str(c.description)
+                                        soup2 = BeautifulSoup(item_desc, 'html.parser')
+                                        image2 = soup2.find('img')
+                                        post_image = image2['src']
+                                    except:
+                                        post_image = str(logo)
                     management.call_command("import_articles",c.title,c.link,post_image,str(pub_date),str(id))
                     error_check = 1

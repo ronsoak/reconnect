@@ -1,12 +1,14 @@
 :root {
-    --PrimaryDark: #2B2B2B;
-    --SecondaryDark: #3f3f3f;
+    --PrimaryDark: #171717;
+    --SecondaryDark: #222222;
     --PrimaryYellow: #ebeb5d;
     --SecondaryYellow: #f4f296;
+    --Outline: #323232;
+    --Grey: #bdbdbd;
 }
 body {
     background-color: var(--PrimaryDark) !important;
-    color: white !important;
+    color: #E4E4E4 !important;
   }
 /* Overrides */
 .dropdown-item:hover {
@@ -14,22 +16,39 @@ body {
     background-color: var(--PrimaryYellow) !important;
 }
 input::placeholder{
-    color: white !important;
+    color: var(--Grey) !important;
 }
 input, select, textarea{
-    color: white !important;
+    color: var(--Grey) !important;
 }
 /* Id's */
+#aboutList{
+    line-height: 18px !important;
+}
+#aboutList>li{
+    margin-bottom: 7px;
+}
 #outer{
     max-width: 720px !important;
   }
 #searchButton.btn:hover{
-    background-color: var(--SecondaryDark) !important;
-    border: 1px solid var(--PrimaryYellow);
+    background-color: var(--SecondaryYellow) !important;
+    color: var(--PrimaryDark) !important;
+}
+#SiteSelector.btn:hover{
+    background-color: var(--SecondaryYellow) !important;
+    color: var(--PrimaryDark) !important;
+}
+#SiteSelector.btn.show {
+    color: var(--PrimaryDark) !important;
+    background-color: var(--SecondaryYellow) !important;
 }
 /* Classes */
 .B_none{
     border: none !important;
+}
+.B_White{
+    border: 1px solid var(--Outline) !important;
 }
 .BT_Yellow{
     border-top: 1px solid var(--PrimaryYellow);
@@ -43,14 +62,23 @@ input, select, textarea{
 .BG_PrimYellow{
     background-color: var(--PrimaryYellow) !important;
 }
+.letterspace{
+    letter-spacing: .75px !important;
+}
 .TC_PrimYellow{
     color: var(--PrimaryYellow) !important;
 }
 .TC_SecYellow{
     color: var(--SecondaryYellow) !important;
 }
+.TC_Black{
+    color: var(--PrimaryDark);
+}
 .TC_White{
-    color: white !important;
+    color: #ffffff !important;
+}
+.TC_Grey{
+    color: var(--Grey);
 }
 .TD_None{
     text-decoration: none !important;

@@ -1,0 +1,25 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/*
+Disallow: /wp-includes/*
+Disallow: */wp-includes/
+Disallow: /wordpress/*
+Disallow: /.git/*
+Disallow: /blogsite/
+Disallow: /wp-content/
+Disallow: /xmlrpc.php
+Disallow: /blog/*
+Disallow: /news/*
+Disallow: /test/*
+Disallow: /sito/*
+Disallow: /site/*
+Disallow: */None
+Disallow: /humans.txt
+Disallow: */wlwmanifest.xml
+Disallow: /bridge
+
+
+
+User-agent: GPTBot
+Disallow: /
+Sitemap: https://www.reconnect.quest/sitemap.xml

@@ -1,11 +1,11 @@
-<ul class="nav nav-pills justify-content-center nav-fill">
-    <li class="nav-item">
-      <a class="nav-link" {% if filtr == 0 %} style="background-color: #ebeb5d; color: black;"{% else %} style="color: white;" {% endif %} href="/">Popular</a>
+<ul class="nav justify-content-center nav-fill">
+    <li class="nav-item"  {% if filtr == 0 %} style="border-bottom: 2px solid #ebeb5d; font-weight: 700;" {% endif %}>
+      <a class="nav-link" {% if filtr == 0 %} style="color: white !important;"{% else %} style="color: #454545;" {% endif %} href="/">Popular</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" {% if filtr == 1 %} style="background-color: #ebeb5d; color: black;"{% else %} style="color: white;" {% endif %} href="new">Latest</a>
+    <li class="nav-item"  {% if filtr == 1 %} style="border-bottom: 2px solid #ebeb5d;font-weight: 700;" {% endif %}>
+      <a class="nav-link" {% if filtr == 1 %}style="color: white !important;"{% else %} style="color: #454545;" {% endif %} href="new">Latest</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" {% if filtr == 2 %} style="background-color: #ebeb5d; color: black;"{% else %} style="color: white;" {% endif %} href="curated">Featured</a>
+    <li class="nav-item"  {% if filtr == 2 %} style="border-bottom: 2px solid #ebeb5d;font-weight: 700;" {% endif %}>
+      <a class="nav-link" {% if filtr == 2 %}style="color: white !important;"{% else %} style="color: #454545;" {% endif %} href="curated">Featured</a>
     </li>
   </ul>
