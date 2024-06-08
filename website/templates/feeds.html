@@ -12,9 +12,19 @@
     <!-- Results -->
     <div class="container py-3 px-0">
         {% for s in sites %}
-        <div class="card mb-3 p-2 BG_SecDark TC_White">
-            <h6 class="card-title p-0">{{s.name}}</h6>
-            <p class="card-text"><a href="{{s.feed}}" class="TC_White TD_None" target="_blank">{{s.feed}}</a></p>
+        <div class="card mb-3 BG_SecDark B_White">
+            <div class="row g-0">
+              <div class="col-1" style="width: 100px;">
+                <div class="rounded-start" style="background-image: url({{s.logo}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
+              </div>
+              <div class="col">
+                <div class="card-body">
+                  <h6 class="card-title"><a href="{{c.url}}" target="_blank" onclick="castVote('{{c.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None">{{s.name}}</a></h6>
+                  <p class="card-text"><small class="text-muted letterspace"><a href="/more/{{c.site.id}}" target="_blank" class="TC_SecYellow TD_None">{{s.url}}</a>
+                    </small></p>
+                </div>
+              </div>
+            </div>
           </div>
         {% empty %}
         <p>no results</p>

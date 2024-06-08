@@ -35,7 +35,7 @@ class Sites(models.Model):
     feed        = models.URLField(blank=False,null=False, help_text="The URL of the Feed", verbose_name="Feed URL")
     feed_type   = models.ForeignKey(Logic, on_delete=models.PROTECT, limit_choices_to=models.Q(category="METHOD"))
     description = models.TextField(max_length=2000, blank=False,null=False,help_text="Explanation of the site", verbose_name="Site Description")
-    logo        = models.ImageField(upload_to='sites', max_length=512,help_text="Upload the sites logo", verbose_name="Site Logo")
+    logo        = models.ImageField(upload_to='media/sites', max_length=512,help_text="Upload the sites logo", verbose_name="Site Logo")
     modifier    = models.FloatField(default=1, blank=False, help_text="Rank Modifier", verbose_name="Modifier Value")
     hidden      = models.BooleanField(default=False, help_text="Indicates whether the site is hidden", verbose_name="Site Hidden")
     # Metadata

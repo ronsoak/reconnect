@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 # This script is manually triggered to test whether an RSS will work.
 class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any):
-        url = "https://iainplays.com/feed/feed.xml"
+        url = "https://gamefromscratch.com/feed"
         error_check = 0 
         ssl._create_default_https_context=ssl._create_unverified_context
         try:
