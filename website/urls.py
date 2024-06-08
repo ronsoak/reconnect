@@ -16,7 +16,7 @@ urlpatterns = [
     path("robots.txt",TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 
     # Error Pages
-    path('400',views.page404, name='400Page'),
+    path('400',views.page400, name='400Page'),
     path('404',views.page404, name='404Page'),
     path('500',views.page500, name='500Page'),
 
