@@ -111,7 +111,7 @@ def Home(request,filtr):
     session = request.session.session_key
     # ----- -----
     f = filtr   # filter for page view type
-    p = 10      # page limit
+    p = 20      # page limit
     page = request.GET.get("page")
     # ----- -----
     # Filter View
