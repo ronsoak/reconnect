@@ -3,10 +3,10 @@
 {% block content %}
 {% load static %}
 <div class="container py-3 TC_White">
-    <div class="card my-3 p-2 BG_SecDark">
+    <div class="card my-3 p-2 BG_PrimDark B_none">
         {% for i in moreInfo %}
         <p class="text-center TC_White fs-2 pt-2">{{i.name}}</p>
-        <p class="TC_Grey text-center px-4">{{i.description}}</p>
+        <p class="TC_Grey text-center px-2">{{i.description}}</p>
         {% endfor %}
     </div>
     <!-- Site Selector -->
@@ -30,21 +30,20 @@
     </div>
     <!-- Results -->
     {% for m in moreSites %}
-    <div class="card mb-3 BG_SecDark B_White">
+    <div class="card mb-3 BG_PrimDark drp">
         <div class="row g-0">
           <div class="col-1" style="width: 100px;">
             <div class="rounded-start" style="background-image: url({{m.image_url}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
           </div>
           <div class="col">
             <div class="card-body">
-              <h6 class="card-title"><a href="{{m.url}}" target="_blank" onclick="castVote('{{m.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None">{{m.title}}</a></h6>
-              <p class="card-text"><small class="text-muted letterspace"><a href="/more/{{m.site.id}}" target="_blank" class="TC_SecYellow TD_None">{{m.site}}</a>
-                <span class="TC_Grey px-2">{{m.published|date:'d M Y'}}</span>
+              <p class="card-title"><a href="{{m.url}}" target="_blank" onclick="castVote('{{m.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None fw-light fs-5">{{m.title}}</a></p>
+              <p class="card-text"><small><a href="/more/{{m.site.id}}" target="_blank" class="TC_SecYellow TD_None fw-light">{{m.site}}</a>
                 {% if user.is_authenticated %}
                 <a href="/hide/{{m.id}}"><button type="button" class="btn btn-secondary btn-sm mx-2">Hide</button></a>
                 <a href="/feature/{{m.id}}"><button type="button" class="btn btn-secondary btn-sm">Feature</button></a>
                 {% endif %}
-                </small></p>
+            </small></p>
             </div>
           </div>
         </div>

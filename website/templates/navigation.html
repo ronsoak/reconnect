@@ -1,18 +1,18 @@
 <div class="container p-0 ">
-    <div class="row mx-0">
+    <div class="row mx-0 mt-4">
         <!-- Left -->
         <div class="col-8 p-0">
-            <span class="align-middle fs-1 fw-bold"><a href="/" class="TD_None TC_White">RECONNECT</a></span>
+            <span class="fw-bold"><a href="/" class="TD_None TC_White fw-light" style="font-size: 45px !important;">reconnect.</a></span>
         </div>
         <!-- Right -->
         <div class="col position-relative">
             <div class="dropdown position-absolute top-0 end-0">
-                <button class="btn btn-secondary BG_SecDark B_White" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;" aria-label="NavigationButton">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+                <button class="btn btn-sm btn-secondary BG_PrimYellow " type="button" id="siteNavigation" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;" aria-label="NavigationButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="bi bi-list" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                       </svg>
                 </button>
-                <ul id="navMenu" class="dropdown-menu dropdown-menu-end dropdown-menu-dark BG_SecDark B_White">
+                <ul id="navMenu" class="dropdown-menu dropdown-menu-end dropdown-menu-dark BG_PrimDark B_White fw-light">
                     <li><a class="dropdown-item {% if "/" == request.path %} disabled {% endif %}" href="/">Home</a></li>
                     <li><a class="dropdown-item {% if "/about" == request.path %} disabled {% endif %}" href="/about">About</a></li>
                     <li><a class="dropdown-item {% if "/search" == request.path %} disabled {% endif %}" href="/search">Search</a></li>

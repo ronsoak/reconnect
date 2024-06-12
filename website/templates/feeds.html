@@ -3,25 +3,25 @@
 {% block content %}
 {% load static %}
 <div class="container py-3">
-    <div class="card my-3 p-2 BG_SecDark">
-        <p class="text-center TC_White fs-2 pt-2 mb-1">RSS Feeds</p>
-        <p class="TC_Grey px-4">Stay up to date with what's new on Reconnect by following our <a href="{% url 'Feed' %}" class="TC_White TD_None" target="_blank">RSS Feed</a>.</p>
-        <p class="TC_Grey px-4">The feed contains all of the articles flowing through Reconnect every day.</p>
-        <p class="TC_Grey px-4">If your interested in following a site in particular their RSS urls are listed below.</p>
+    <div class="card my-3 p-2 BG_PrimDark B_none">
+        <p class="text-center TC_Grey fs-1 fw-light pt-3 mb-3">RSS Feeds</p>
+        <p class="TC_White">Stay up to date with what's new on Reconnect by following our <a href="{% url 'Feed' %}" class="TC_PrimYellow TD_None" target="_blank">RSS Feed</a>.</p>
+        <p class="TC_White">The feed contains all of the articles flowing through Reconnect every day.</p>
+        <p class="TC_White">If your interested in following a site in particular their RSS urls are listed below.</p>
     </div>
     <!-- Results -->
     <div class="container py-3 px-0">
         {% for s in sites %}
-        <div class="card mb-3 BG_SecDark B_White">
+        <div class="card mb-3 BG_PrimDark drp">
             <div class="row g-0">
               <div class="col-1" style="width: 100px;">
                 <div class="rounded-start" style="background-image: url({{s.logo}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
               </div>
               <div class="col">
                 <div class="card-body">
-                  <h6 class="card-title"><a href="{{c.url}}" target="_blank" onclick="castVote('{{c.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None">{{s.name}}</a></h6>
-                  <p class="card-text"><small class="text-muted letterspace"><a href="/more/{{c.site.id}}" target="_blank" class="TC_SecYellow TD_None">{{s.url}}</a>
-                    </small></p>
+                  <p class="card-title"><a href="{{s.url}}" target="_blank" class="TC_White TD_None fw-light fs-5">{{s.name}}</a></p>
+                  <p class="card-text"><small>
+                    <a href="{{s.feed}}" target="_blank"class="TC_SecYellow TD_None fw-light">Click Here for URL</a></small></p>
                 </div>
               </div>
             </div>

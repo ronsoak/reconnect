@@ -3,13 +3,13 @@
 {% block content %}
 {% load static %}
 <div class="container py-3 TC_White">
-    <div class="card my-3 p-2 BG_SecDark">
-        <p class="text-center TC_White fs-2 p-2">Search</p>
-        <p class="TC_Grey text-center px-4">Search will look for keywords in article titles and website names</p>
+    <div class="card my-3 p-2 BG_PrimDark B_none">
+        <p class="text-center TC_Grey fs-1 fw-light pt-3 mb-2">Search</p>
+        <p class="TC_White text-center px-2">Search will look for keywords in article titles and website names</p>
     <form action="{% url 'search' %}" method="POST">
-    <div class="input-group mb-3 px-3">
+    <div class="input-group mb-3">
         {% csrf_token %}
-        <input type="text" class="form-control rounded-start BG_SecDark B_White" placeholder="Enter search terms" name="Search Terms" type="text"  aria-label="searchButton">
+        <input type="text" class="form-control rounded-start BG_PrimDark B_Yellow" placeholder="Enter search terms" name="Search Terms" type="text"  aria-label="searchButton">
         <button id="searchButton" class="btn BG_PrimYellow" type="submit" id="button-addon2">Search</button>
       </div>
     </form>
@@ -17,18 +17,20 @@
     <!-- Results -->
     <div class="container py-3 px-0">
         {% for r in results %}
-        <div class="card mb-3 BG_SecDark B_White">
+        <div class="card mb-3 BG_PrimDark drp">
             <div class="row g-0">
               <div class="col-1" style="width: 100px;">
                 <div class="rounded-start" style="background-image: url({{r.image_url}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
               </div>
               <div class="col">
                 <div class="card-body">
-                  <h6 class="card-title"><a href="{{r.url}}" target="_blank" onclick="castVote('{{r.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None">{{r.title}}</a></h6>
-                  <p class="card-text"><small class="text-muted letterspace"><a href="/more/{{r.site.id}}" target="_blank" class="TC_SecYellow TD_None">{{r.site}}</a>
-                    </small>
-                    <span class="TC_Grey px-2">{{r.published|date:'d M Y'}}</span>
-                </p>
+                  <p class="card-title"><a href="{{r.url}}" target="_blank" onclick="castVote('{{r.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None fw-light fs-5">{{r.title}}</a></p>
+                  <p class="card-text"><small><a href="/more/{{r.site.id}}" target="_blank" class="TC_SecYellow TD_None fw-light">{{r.site}}</a>
+                    {% if user.is_authenticated %}
+                    <a href="/hide/{{r.id}}"><button type="button" class="btn btn-secondary btn-sm mx-2">Hide</button></a>
+                    <a href="/feature/{{r.id}}"><button type="button" class="btn btn-secondary btn-sm">Feature</button></a>
+                    {% endif %}
+                </small></p>
                 </div>
               </div>
             </div>

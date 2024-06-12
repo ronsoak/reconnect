@@ -1,19 +1,23 @@
 :root {
-    --PrimaryDark: #171717;
-    --SecondaryDark: #222222;
-    --PrimaryYellow: #ebeb5d;
-    --SecondaryYellow: #f4f296;
-    --Outline: #323232;
-    --Grey: #bdbdbd;
+    --PrimaryDark: #121213;
+    --SecondaryDark: #1C1C1E;
+    --PrimaryYellow: #d6e752;
+    --SecondaryYellow: #D7D992;
+    --Outline: #4B4B4C;
+    --Grey: #4B4B4C;
 }
 body {
     background-color: var(--PrimaryDark) !important;
     color: #E4E4E4 !important;
+    line-height: 1.3 !important;
   }
 /* Overrides */
 .dropdown-item:hover {
     color: var(--PrimaryDark) !important;
     background-color: var(--PrimaryYellow) !important;
+}
+.page-link:hover{
+    color: var(--PrimaryDark) !important;
 }
 input::placeholder{
     color: var(--Grey) !important;
@@ -22,26 +26,25 @@ input, select, textarea{
     color: var(--Grey) !important;
 }
 /* Id's */
-#aboutList{
-    line-height: 18px !important;
-}
 #aboutList>li{
-    margin-bottom: 7px;
+    margin-bottom: 9px;
+    list-style-type: "—";
+    padding-left: 6px;
 }
 #outer{
     max-width: 720px !important;
   }
 #searchButton.btn:hover{
-    background-color: var(--SecondaryYellow) !important;
+    background-color: var(--PrimaryYellow) !important;
     color: var(--PrimaryDark) !important;
 }
 #SiteSelector.btn:hover{
-    background-color: var(--SecondaryYellow) !important;
+    background-color: var(--PrimaryYellow) !important;
     color: var(--PrimaryDark) !important;
 }
 #SiteSelector.btn.show {
     color: var(--PrimaryDark) !important;
-    background-color: var(--SecondaryYellow) !important;
+    background-color: var(--PrimaryYellow) !important;
 }
 /* Classes */
 .B_none{
@@ -49,6 +52,9 @@ input, select, textarea{
 }
 .B_White{
     border: 1px solid var(--Outline) !important;
+}
+.B_Yellow{
+    border: 1px solid var(--PrimaryYellow) !important;
 }
 .BT_Yellow{
     border-top: 1px solid var(--PrimaryYellow);
@@ -61,6 +67,9 @@ input, select, textarea{
 }
 .BG_PrimYellow{
     background-color: var(--PrimaryYellow) !important;
+}
+.drp{
+    filter: drop-shadow(3px 3px 5px #000000);
 }
 .letterspace{
     letter-spacing: .75px !important;

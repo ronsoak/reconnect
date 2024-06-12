@@ -12,4 +12,7 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py runserver
 
-
+source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py import_rss
+source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py delete_votes
+source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py random_votes
+source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py uncurate
