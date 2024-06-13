@@ -19,18 +19,19 @@ class Command(BaseCommand):
             name = s.name
             id = s.id 
             logo = s.logo.url
-            error_check = 0 
+            error_check = False
+            self.stdout.write("Parsing Site:"+s.name) 
             try:
                 content = feedparser.parse(url)
             except:
-                error_check = 1
+                error_check = True
                 self.stdout.write("failed to parse feed: " + name)
-            while error_check == 0:
+            while error_check == False:
                 if content.status >= 400:
-                    error_check = 1
+                    error_check = True
                     self.stdout.write("Bad HTTP Status: "+ name +"["+str(content.status)+"]")
                 if content.bozo == 1:
-                    error_check = 1
+                    error_check = True
                     self.stdout.write("Bad Bozo Flag: "+ name +"["+str(content.bozo_exception)+"]")
                 for c in content.entries:
                     # Try and get the date
@@ -72,4 +73,4 @@ class Command(BaseCommand):
                                     except:
                                         post_image = 'media/'+str(logo)
                     management.call_command("import_articles",c.title,c.link,post_image,str(pub_date),str(id))
-                    error_check = 1
+                    error_check = True
