@@ -27,14 +27,15 @@ class Command(BaseCommand):
 
         # Start to cycle through the sites
         for s in sources:
-            url = s.feed
+            url = s.feeds.strip
             name = s.name
             id = s.id 
             logo = s.logo.url
             error_check = False
             self.stdout.write("Reading Site: "+s.name+" ("+url+") ") 
 
-            # Check URL response
+            # Check URL response 
+            # Requests is more reliable than feed.status
             response = requests.get(url)
             self.stdout.write(str(response.status_code))
 
