@@ -31,7 +31,7 @@ class Command(BaseCommand):
             id = s.id 
             logo = s.logo.url
             error_check = False
-            self.stdout.write("Reading Site: "+s.name,url) 
+            self.stdout.write("Reading Site: "+s.name+" ("+url+") ") 
 
             # Attempt to parse the URL
             try:
@@ -47,6 +47,8 @@ class Command(BaseCommand):
                     feed_status = content.status
                 except:
                     feed_status = 200
+
+                self.stdout.write("Site Status: "+feed_status) 
 
                 if feed_status >= 400:
                     error_check = True
