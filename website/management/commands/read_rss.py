@@ -31,7 +31,7 @@ class Command(BaseCommand):
             id = s.id 
             logo = s.logo.url
             error_check = False
-            self.stdout.write("Reading Site: "+s.name) 
+            self.stdout.write("Reading Site: "+s.name,url) 
 
             # Attempt to parse the URL
             try:
@@ -39,19 +39,20 @@ class Command(BaseCommand):
             except:
                 error_check = True
                 self.stdout.write("failed to parse feed: " + name)
+
             while error_check == False:
                 # Try to ascertain the status of the feed
                 # If it fails, the script will still try to get content
                 try:
                     feed_status = content.status
                 except:
-                    feed_status = 0
+                    feed_status = 200
 
                 if feed_status >= 400:
                     error_check = True
                     self.stdout.write("Bad HTTP Status: "+ name +"["+str(feed_status)+"]")
 
-                if content.bozo == True:
+                if content.bozo == 1:
                     error_check = True
                     self.stdout.write("Bad Bozo Flag: "+ name +"["+str(content.bozo)+"]")
 
