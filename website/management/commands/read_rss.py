@@ -46,7 +46,7 @@ class Command(BaseCommand):
                 try:
                     feed_status = content.status
                 except:
-                    feed_status = 200
+                    feed_status = 195
 
                 self.stdout.write("Site Status: "+ str(feed_status)) 
 
