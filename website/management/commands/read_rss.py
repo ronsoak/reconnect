@@ -53,10 +53,10 @@ class Command(BaseCommand):
 
                 # Try to ascertain the bozo status 
                 # If it fails, the script will still try to get content
-                try:
-                    bozo_status = content.bozo
-                except:
-                    bozo_status = 0
+                # try:
+                #     bozo_status = content.bozo
+                # except:
+                #     bozo_status = 0
 
                 if bozo_status == 1:
                     error_check = True
