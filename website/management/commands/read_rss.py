@@ -27,7 +27,7 @@ class Command(BaseCommand):
 
         # Start to cycle through the sites
         for s in sources:
-            url = s.feed.strip
+            url = s.feed.strip()
             name = s.name
             id = s.id 
             logo = s.logo.url
