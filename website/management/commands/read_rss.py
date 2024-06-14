@@ -1,6 +1,7 @@
 from typing import Any
 from django.core.management.base import BaseCommand
 import feedparser
+import requests
 import ssl
 import warnings
 from datetime import datetime
@@ -32,6 +33,10 @@ class Command(BaseCommand):
             logo = s.logo.url
             error_check = False
             self.stdout.write("Reading Site: "+s.name+" ("+url+") ") 
+
+            # Check URL response
+            response = requests.get(url)
+            self.stdout.write(str(response.status_code))
 
             # Attempt to parse the URL
             try:
