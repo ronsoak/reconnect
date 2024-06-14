@@ -48,7 +48,7 @@ class Command(BaseCommand):
                 except:
                     feed_status = 200
 
-                self.stdout.write("Site Status: "+feed_status) 
+                self.stdout.write("Site Status: "+ str(feed_status)) 
 
                 if feed_status >= 400:
                     error_check = True
