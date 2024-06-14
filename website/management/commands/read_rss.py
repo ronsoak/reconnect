@@ -45,7 +45,7 @@ class Command(BaseCommand):
                 try:
                     feed_status = content.status
                 except:
-                    feed_status = 999
+                    feed_status = 0
 
                 if feed_status >= 400:
                     error_check = True
