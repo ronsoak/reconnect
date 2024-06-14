@@ -51,16 +51,9 @@ class Command(BaseCommand):
                     error_check = True
                     self.stdout.write("Bad HTTP Status: "+ name +"["+str(feed_status)+"]")
 
-                # Try to ascertain the bozo status 
-                # If it fails, the script will still try to get content
-                # try:
-                #     bozo_status = content.bozo
-                # except:
-                #     bozo_status = 0
-
-                if bozo_status == 1:
+                if content.bozo == 1:
                     error_check = True
-                    self.stdout.write("Bad Bozo Flag: "+ name +"["+str(bozo_status)+"]")
+                    self.stdout.write("Bad Bozo Flag: "+ name +"["+str(content.bozo)+"]")
 
                 # Get the feed entries
                 for c in content.entries:
