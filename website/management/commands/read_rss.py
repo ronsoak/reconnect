@@ -32,7 +32,7 @@ class Command(BaseCommand):
             id = s.id 
             logo = s.logo.url
             error_check = False
-            self.stdout.write("Reading Site: "+s.name+" ("+url+") ") 
+            self.stdout.write("Reading Site: "+s.name) 
 
             # Check URL response 
             # Requests is more reliable than feed.status
