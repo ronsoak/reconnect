@@ -66,7 +66,7 @@ class Command(BaseCommand):
                                     post_image = image2['src']
                                 except:
                                     post_image = None
-                print (c.title,c.link,post_image,str(pub_date))
+                print (c.title,c.link,post_image,str(pub_date),content.bozo)
                 error_check = 1
 
 
