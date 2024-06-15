@@ -19,6 +19,7 @@ class Command(BaseCommand):
         a_published   = options["published"]
         a_created     = datetime.now()
         a_site        = options["site"]
+        a_mod         = Sites.objects.get(pk=a_site).modifier
 
         self.stderr.write("Writing article: "+ a_title +","+ a_url +","+ a_image +","+ a_published +","+ a_site)
 
@@ -30,7 +31,7 @@ class Command(BaseCommand):
                 published   = a_published,
                 created     = a_created,
                 site        = Sites.objects.get(pk=a_site),
-                modifier    = Sites.objects.get(pk=a_site).modifier
+                modifier    = a_mod
             )
             article.save()
         except Exception as e:
