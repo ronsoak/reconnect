@@ -37,7 +37,12 @@ class Command(BaseCommand):
             # Check URL response 
             # Requests is more reliable than feed.status
             response = requests.get(url)
-            self.stdout.write(str(response.status_code))
+
+            if response.status_code >= 400:
+                self.stdout.write("URL did not resolve: "+ name + "[" +str(response.status_code) + "]")
+
+            if response.status_code == 301:
+                self.stdout.write("URL Redirects, please check: "+ name + "[" + str(response.status_code) + "]")
 
             # Attempt to parse the URL
             try:
@@ -47,19 +52,6 @@ class Command(BaseCommand):
                 self.stdout.write("failed to parse feed: " + name)
 
             while error_check == False:
-                # Try to ascertain the status of the feed
-                # If it fails, the script will still try to get content
-                try:
-                    feed_status = content.status
-                except:
-                    feed_status = 195
-
-                self.stdout.write("Site Status: "+ str(feed_status)) 
-
-                if feed_status >= 400:
-                    error_check = True
-                    self.stdout.write("Bad HTTP Status: "+ name +"["+str(feed_status)+"]")
-
                 if content.bozo == 1:
                     error_check = True
                     self.stdout.write("Bad Bozo Flag: "+ name +"["+str(content.bozo)+"]")

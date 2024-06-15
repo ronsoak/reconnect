@@ -21,8 +21,6 @@ class Command(BaseCommand):
         a_site        = options["site"]
         a_mod         = Sites.objects.get(pk=a_site).modifier
 
-        self.stderr.write("Writing article: "+ a_title +","+ a_url +","+ a_image +","+ a_published +","+ a_site)
-
         try:
             article = Articles(
                 title       = a_title,
