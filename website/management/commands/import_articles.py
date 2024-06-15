@@ -20,6 +20,8 @@ class Command(BaseCommand):
         a_created     = datetime.now()
         a_site        = options["site"]
 
+        self.stderr.write("Writing article: "+ a_title +","+ a_url +","+ a_image +","+ a_published +","+ a_site)
+
         try:
             article = Articles(
                 title       = a_title,

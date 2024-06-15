@@ -103,6 +103,6 @@ class Command(BaseCommand):
                                         image2 = soup2.find('img')
                                         post_image = image2['src']
                                     except:
-                                        post_image = 'media/'+str(logo)
+                                        post_image = str(logo)
                     management.call_command("import_articles",c.title,c.link,post_image,str(pub_date),str(id))
                     error_check = True
