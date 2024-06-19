@@ -16,28 +16,7 @@
     </div>
     <!-- Results -->
     <div class="container py-3 px-0">
-        {% for r in results %}
-        <div class="card mb-3 BG_PrimDark drp">
-            <div class="row g-0">
-              <div class="col-1" style="width: 100px;">
-                <div class="rounded-start" style="background-image: url({{r.image_url}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
-              </div>
-              <div class="col">
-                <div class="card-body">
-                  <p class="card-title"><a href="{{r.url}}" target="_blank" onclick="castVote('{{r.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None fw-light fs-5">{{r.title}}</a></p>
-                  <p class="card-text"><small><a href="/more/{{r.site.id}}" target="_blank" class="TC_SecYellow TD_None fw-light">{{r.site}}</a>
-                    {% if user.is_authenticated %}
-                    <a href="/hide/{{r.id}}"><button type="button" class="btn btn-secondary btn-sm mx-2">Hide</button></a>
-                    <a href="/feature/{{r.id}}"><button type="button" class="btn btn-secondary btn-sm">Feature</button></a>
-                    {% endif %}
-                </small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% empty %}
-        <!-- <p>no results</p> -->
-        {% endfor %}
+        {% include "content.html" %}
     </div>
 </div>
 <!-- End Tags -->

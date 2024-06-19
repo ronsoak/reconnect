@@ -13,3 +13,9 @@ manage.py
 
 #DB 
 db.sqlite3
+
+# misc
+*image.png
+media/media
+test/
+

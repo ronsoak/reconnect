@@ -158,7 +158,7 @@ def Search(request):
         if squery:
             qlimit = 500
             results = Articles.objects.filter(Q(title__icontains=squery, hidden = False, site_hide = False) | Q(site__name__icontains=squery)).order_by('-published')[:qlimit]
-            return render(request, 'search.html', {"results":results,"session": session,})
+            return render(request, 'search.html', {"content":results,"session": session,})
     return render(request, 'search.html')
 # ===== ===== =====
 # RSS Feeds
@@ -174,7 +174,7 @@ def More(request, st_id):
     moreDetails = Sites.objects.filter(id=st_id, hidden = False)
     moreList = Sites.objects.filter(hidden = False)
     context = {
-        "moreSites": moreQuery,
+        "content": moreQuery,
         "moreInfo": moreDetails,
         "moreSelect": moreList,
     }
