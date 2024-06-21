@@ -143,7 +143,13 @@ def Home(request,filtr):
 # About
 # ===== ===== =====
 def About(request):
-    return render(request,'about.html')
+    s_count = Sites.objects.filter(hidden=False).count()
+    a_count = Articles.objects.filter(hidden=False,site_hide=False).count()
+    context = {
+        "s_count" : s_count,
+        "a_count" : a_count
+    }
+    return render(request,'about.html',context)
 # ===== ===== =====
 # Search
 # ===== ===== =====

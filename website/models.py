@@ -56,7 +56,7 @@ class Articles(models.Model):
     title       = models.CharField(max_length=256,blank=False,null=False,help_text="", verbose_name="Article Title")
     url         = models.URLField(blank=False,null=False, help_text="", verbose_name="Article URL")
     image_url   = models.CharField(max_length=512,blank=False,null=False,help_text="", verbose_name="Image Reference")
-    site        = models.ForeignKey(Sites, on_delete=models.PROTECT)
+    site        = models.ForeignKey(Sites, on_delete=models.CASCADE)
     published   = models.DateField(null=True, blank=True, help_text="The date the article was published", verbose_name="Published Date")
     created     = models.DateTimeField(auto_now_add=True,null=True, blank=True, help_text="The date the article was created in the site", verbose_name="Created Date") 
     boost       = models.FloatField(default=0,blank=False,help_text="Boosts the article artificially",verbose_name="Boost Count")
