@@ -12,6 +12,12 @@ body {
     line-height: 1.3 !important;
   }
 /* Overrides */
+.card-title>a{
+    font-size: 4vw;
+}
+.card-text>a{
+    font-size: 3vw;
+}
 .dropdown-item:hover {
     color: var(--PrimaryDark) !important;
     background-color: var(--PrimaryYellow) !important;
@@ -95,3 +101,12 @@ input, select, textarea{
 .page-link{
     border: none !important;
 }
+/* Media Queries */
+@media screen and (min-width: 600px) {
+    .card-title>a{
+        font-size: 20px;
+    }
+    .card-text>a{
+        font-size: 16px;
+    }
+  }

@@ -2,17 +2,17 @@
 <div class="card mb-3 BG_PrimDark drp">
     <div class="row g-0">
       <div class="col-1" style="width: 100px;">
-        <div class="rounded-start" style="background-image: url({{c.image_url}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
+        <div class="rounded-start" style="background-image: url({{c.image_url}}), url({{c.site.logo}}); height: 100%; width: 100px; background-position: 50% 50%; background-size: 300px;"></div>
       </div>
       <div class="col">
         <div class="card-body">
-          <p class="card-title"><a href="{{c.url}}" target="_blank" onclick="castVote('{{c.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None fw-light fs-5">{{c.title}}</a></p>
-          <p class="card-text"><small><a href="/more/{{c.site.id}}" target="_blank" class="TC_SecYellow TD_None fw-light">{{c.site}}</a>
+          <p class="card-title"><a href="{{c.url}}" target="_blank" onclick="castVote('{{c.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None fw-light">{{c.title}}</a></p>
+          <p class="card-text"><a href="/more/{{c.site.id}}" target="_blank" class="TC_SecYellow TD_None fw-light">{{c.site}}</a>
             {% if user.is_authenticated %}
             <a href="/hide/{{c.id}}"><button type="button" class="btn btn-secondary btn-sm mx-2">Hide</button></a>
             <a href="/feature/{{c.id}}"><button type="button" class="btn btn-secondary btn-sm">Feature</button></a>
             {% endif %}
-        </small></p>
+        </p>
         </div>
       </div>
     </div>
