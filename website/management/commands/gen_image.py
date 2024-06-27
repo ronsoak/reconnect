@@ -9,13 +9,14 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any):
         # Default Font
         # change this to a font in the server
-        tfont = ImageFont.truetype("/System/Library/Fonts/Archivo-Bold.otf",size=18)
+        tfont = ImageFont.truetype("website/static/Font/Archivo-Bold.otf",size=18)
 
         # Background Image
         back = [
-            "media/source/back1.png",
-            "media/source/back2.png",
-            "media/source/back3.png"
+            "media/background/back1.png",
+            "media/background/back2.png",
+            "media/background/back3.png",
+            "media/background/back4.png",
         ]
 
         # Site query 
@@ -42,11 +43,11 @@ class Command(BaseCommand):
                 placeholder=' [...]')
 
         # Background Image
-            bim = Image.open(back_img)
+            bim = Image.open(back_img,mode="r",formats=["png"])
             tdraw = ImageDraw.Draw(bim)
             tdraw.multiline_text(
                 (300,300),"\n".join(image_text), 
-                fill=(0,0,0), 
+                fill="Black", 
                 font=tfont, 
                 anchor="mm", 
                 spacing=4, 

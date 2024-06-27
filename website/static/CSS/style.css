@@ -37,6 +37,9 @@ input, select, textarea{
     list-style-type: "—";
     padding-left: 6px;
 }
+#header>a>img{
+    height: 40px;
+}
 #outer{
     max-width: 720px !important;
   }

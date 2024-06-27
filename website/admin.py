@@ -38,6 +38,7 @@ class ArticleAdmin(admin.ModelAdmin):
 class SiteAdmin(admin.ModelAdmin):
     list_display=('name','feed_type','modifier','hidden')
     list_filter=['feed_type','modifier','hidden']
+    list_per_page= 500
     actions = ['hide_site']
     show_facets = admin.ShowFacets.ALWAYS
     search_fields = ['name']
