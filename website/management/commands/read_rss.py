@@ -59,7 +59,7 @@ class Command(BaseCommand):
                 # Get the feed entries
                 for c in content.entries:
                     if Articles.objects.filter(url=c.link).exists():
-                        self.stdout.write("URL Already in the site.")
+                        # self.stdout.write("URL Already in the site.")
                         error_check = True
                     else:
                         # clear variable
