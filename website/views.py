@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.syndication.views import Feed
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.db.models import Q
+from django.db.models.functions import Lower
 # ===== ===== ===== ===== ===== ===== ===== ===== ===== 
 # Functions 
 # ===== ===== ===== ===== ===== ===== ===== ===== ===== 
@@ -170,14 +171,14 @@ def Search(request):
 # RSS Feeds
 # ===== ===== =====
 def RSS(request):
-    siteQuery = Sites.objects.filter(hidden=False).order_by('name')
+    siteQuery = Sites.objects.filter(hidden=False).order_by(Lower('name'))
     return render(request,'feeds.html',{"sites":siteQuery})
 # ===== ===== =====
 # Sites
 # ===== ===== =====
 def More(request, st_id):
     moreQuery = Articles.objects.filter(site__id=st_id,hidden = False, site_hide = False)[:500]
-    moreDetails = Sites.objects.filter(id=st_id, hidden = False)
+    moreDetails = Sites.objects.filter(id=st_id, hidden = False).order_by(Lower('name'))
     moreList = Sites.objects.filter(hidden = False)
     context = {
         "content": moreQuery,

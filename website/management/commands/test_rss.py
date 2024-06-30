@@ -14,7 +14,7 @@ class Command(BaseCommand):
         # Fixes Feedparser not getting an SSL cert
         ssl._create_default_https_context=ssl._create_unverified_context 
 
-        siteUrl = "https://gamefromscratch.com/feed"
+        siteUrl = "https://www.segasaturnshiro.com/feed/"
         # Set Error Check to default
         error_check = False
 
@@ -23,10 +23,10 @@ class Command(BaseCommand):
         response = requests.get(siteUrl)
 
         if response.status_code >= 400:
-            self.stdout.write("URL did not resolve: "+ name + "[" +str(response.status_code) + "]")
+            self.stdout.write("URL did not resolve: [" +str(response.status_code) + "]")
 
         if response.status_code == 301:
-            self.stdout.write("URL Redirects, please check: "+ name + "[" + str(response.status_code) + "]")
+            self.stdout.write("URL Redirects, please check: [" + str(response.status_code) + "]")
 
         # Attempt to parse the URL
         try:

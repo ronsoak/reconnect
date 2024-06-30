@@ -3,6 +3,7 @@ settings.py
 
 # cache folders
 __pycache__/*
+__pycache__/*.pyc
 migrations/
 .vscode
 .DS_STORE
@@ -10,6 +11,8 @@ migrations/
 # Python Files
 *__init__.py 
 manage.py
+*.pyc
+**/*.pyc
 
 #DB 
 db.sqlite3
