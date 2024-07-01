@@ -38,7 +38,8 @@ input, select, textarea{
     padding-left: 6px;
 }
 #header>a>img{
-    height: 40px;
+    max-height: 40px;
+    padding: 5px 0px;
 }
 #outer{
     max-width: 720px !important;
