@@ -13,10 +13,12 @@ class Command(BaseCommand):
 
         # Background Image
         back = [
-            "/media/background/back1.png",
-            "/media/background/back2.png",
-            "/media/background/back3.png",
-            "/media/background/back4.png",
+            "media/background/back1.png",
+            "media/background/back2.png",
+            "media/background/back3.png",
+            "media/background/back4.png",
+            "media/background/back5.png",
+            "media/background/back6.png",
         ]
 
         # Site query 
