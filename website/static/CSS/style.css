@@ -56,6 +56,12 @@ input, select, textarea{
     color: var(--PrimaryDark) !important;
     background-color: var(--PrimaryYellow) !important;
 }
+#siteNavigation:focus{
+    outline: none !important;
+}
+#siteNavigation:hover{
+    outline: none !important;
+}
 /* Classes */
 .B_none{
     border: none !important;
