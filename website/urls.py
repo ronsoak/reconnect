@@ -11,7 +11,7 @@ urlpatterns = [
     path('search',views.Search, name='search'),
     path('about',views.About, name='about'),
     path('feeds',views.RSS, name='feeds'),
-    path('more/<uuid:st_id>',views.More, name='more'),
+    path('more/<st_id>',views.More, name='more'),
 
     # Robots
     path("robots.txt",TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
