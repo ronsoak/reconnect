@@ -3,7 +3,7 @@ from . import views
 from django.views.generic.base import TemplateView #needed for robots
 
 urlpatterns = [
-    path('',views.Home,{"filtr": 1},name='home'),
+    path('',views.Home,{"filtr": 0},name='home'),
     path('new',views.Home,{"filtr": 1}, name='new'),
     path('latest',views.Home,{"filtr": 0}, name='latest'),
     path('curated',views.Home,{"filtr": 2}, name='curated'),
