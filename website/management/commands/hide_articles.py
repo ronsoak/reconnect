@@ -6,7 +6,7 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any):
         s = Sites.objects.filter()
         for i in s:
-            id = i.id
+            id = i.pk
             flag = i.hidden
             a = Articles.objects.filter(site = id)
             for c in a:

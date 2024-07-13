@@ -22,7 +22,7 @@ urlpatterns = [
     path('500',views.page500, name='500Page'),
 
     # Functions 
-    path('vote/l/<uuid:id>/<session>/',views.Vote,name='link vote'),  #user clicked the link
+    path('vote/l/<id>/<session>/',views.Vote,name='link vote'),  #user clicked the link
     path('feature/<id>', views.FeatureArticle, name='feature'),
     path('hide/<id>', views.HideArticle, name='hide'),
 ]

@@ -4,7 +4,7 @@ settings.py
 # cache folders
 __pycache__/*
 __pycache__/*.pyc
-migrations/
+migrations/*
 .vscode
 .DS_STORE
 
@@ -24,3 +24,7 @@ test/
 /sites/
 sites.numbers 
 media/sites/
+website/migrations/*
+website/migrations/*.py
+website/migrations/__pycache__/*
+website/__pycache__/*

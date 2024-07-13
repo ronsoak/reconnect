@@ -16,3 +16,12 @@ source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py import
 source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py delete_votes
 source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py random_votes
 source virtualenvwrapper.sh && workon myvirtualenv && python UL/manage.py uncurate
+
+#nukes the db 
+python manage.py flush
+
+# Forces the app to redo the migrations from scratch for an app.
+python manage.py makemigrations website
+
+# Make super user 
+python3 manage.py createsuperuser

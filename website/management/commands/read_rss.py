@@ -15,7 +15,7 @@ class Command(BaseCommand):
         ssl._create_default_https_context=ssl._create_unverified_context 
         
         # Gets the RSS identifier from the Logic Page
-        rss_id = Logic.objects.get(category="METHOD", value = "RSS").id
+        rss_id = Logic.objects.get(category="METHOD", value = "RSS").pk
 
         # Gets the sites that are using the RSS method
         sources = Sites.objects.filter(feed_type=rss_id, hidden=False)
@@ -24,7 +24,7 @@ class Command(BaseCommand):
         for s in sources:
             url = s.feed.strip()
             name = s.name
-            id = s.id 
+            id = s.pk 
             logo = s.logo.url
             
             # Set Error Check to default

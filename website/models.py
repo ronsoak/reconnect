@@ -12,7 +12,6 @@ class Logic(models.Model):
         ("KEYWORD","Keyword")
     )
     # Fields
-    id          = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     category    = models.CharField(max_length=256,blank=False,null=False,choices=CATEGORIES,help_text="Category of Logic", verbose_name="Logic Category")
     value       = models.CharField(max_length=512,blank=False,null=False,help_text="Logic Value", verbose_name="Logic Value")
     # Metadata
@@ -29,7 +28,6 @@ class Logic(models.Model):
 # ===== ===== ===== ===== ===== ===== ===== ===== ===== 
 class Sites(models.Model):
     # Fields
-    id          = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     name        = models.CharField(max_length=256,blank=False,null=False,help_text="Name of the Site", verbose_name="Name")
     url         = models.URLField(blank=False,null=False, help_text="Top level URL of the Site", verbose_name="Site URL")
     feed        = models.URLField(blank=False,null=False, help_text="The URL of the Feed", verbose_name="Feed URL")
@@ -52,7 +50,6 @@ class Sites(models.Model):
 # ===== ===== ===== ===== ===== ===== ===== ===== ===== 
 class Articles(models.Model):
     # Fields
-    id          = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
     title       = models.CharField(max_length=256,blank=False,null=False,help_text="", verbose_name="Article Title")
     url         = models.URLField(blank=False,null=False, help_text="", verbose_name="Article URL")
     image_url   = models.CharField(max_length=512,blank=False,null=False,help_text="", verbose_name="Image Reference")
@@ -91,8 +88,7 @@ class Articles(models.Model):
 # ===== ===== ===== ===== ===== ===== ===== ===== ===== 
 class Votes(models.Model):
     # Fields
-    id          = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False)
-    article     = models.UUIDField(default=uuid.uuid4, help_text="", verbose_name="Article ID")
+    article     = models.CharField(max_length=128,blank=False,null=False,help_text="", verbose_name="Article ID")
     session     = models.CharField(max_length=128,blank=False,null=False,help_text="", verbose_name="Session ID")
     date        = models.DateField(default=timezone.now,help_text="",verbose_name="Vote Date")
     # Metadata
@@ -106,4 +102,4 @@ class Votes(models.Model):
         ]
     # Methods 
     def __str__(self):
-        return str(self.id)
+        return str(self.pk)

@@ -40,13 +40,13 @@ def Vote(self,id,session):
     i = id 
     s = session
     c = 0 # can vote flag
-    if Votes.objects.filter(article=i,session=s).exists():
+    if Votes.objects.filter(pk=i,session=s).exists():
         c = 0
         return HttpResponse('User has already voted')
     else:
         c = 1
     if c == 1:
-        a = Articles.objects.get(id=i)
+        a = Articles.objects.get(pk=i)
         a.clicks = a.clicks + 1
         a.save()
         # Write Vote to Vote Log
@@ -58,7 +58,7 @@ def Vote(self,id,session):
 # ===== ===== =====
 def HideArticle(request,id):
     if request.user.is_authenticated:
-        a = Articles.objects.get(id = id)
+        a = Articles.objects.get(pk = id)
         a.hidden = True
         a.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -69,7 +69,7 @@ def HideArticle(request,id):
 # ===== ===== =====
 def FeatureArticle(request,id):
     if request.user.is_authenticated:
-        a = Articles.objects.get(id = id)
+        a = Articles.objects.get(pk = id)
         a.curated = True
         a.clicks = a.clicks + 1
         a.save()

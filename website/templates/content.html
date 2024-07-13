@@ -6,11 +6,11 @@
       </div>
       <div class="col">
         <div class="card-body">
-          <p class="card-title"><a href="{{c.url}}" target="_blank" onclick="castVote('{{c.id}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None fw-light">{{c.title}}</a></p>
-          <p class="card-text"><a href="/more/{{c.site.id}}" target="_blank" class="TC_SecYellow TD_None fw-light">{{c.site}}</a>
+          <p class="card-title"><a href="{{c.url}}" target="_blank" onclick="castVote('{{c.pk}}','{{session}}','{{ csrf_token }}')" class="TC_White TD_None fw-light">{{c.title}}</a></p>
+          <p class="card-text"><a href="/more/{{c.site.pk}}" target="_blank" class="TC_SecYellow TD_None fw-light">{{c.site}}</a>
             {% if user.is_authenticated %}
-            <a href="/hide/{{c.id}}"><button type="button" class="btn btn-secondary btn-sm mx-2">Hide</button></a>
-            <a href="/feature/{{c.id}}"><button type="button" class="btn btn-secondary btn-sm">Feature</button></a>
+            <a href="/hide/{{c.pk}}"><button type="button" class="btn btn-secondary btn-sm mx-2">Hide</button></a>
+            <a href="/feature/{{c.pk}}"><button type="button" class="btn btn-secondary btn-sm">Feature</button></a>
             {% endif %}
         </p>
         </div>
