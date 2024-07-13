@@ -17,7 +17,7 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['title']
     # Methods
     def get_ordering(self, request):
-        return ['-published']
+        return ['-rank']
     
     def mark_as_curated(self, request, queryset):
         queryset.update(curated = True)

@@ -29,7 +29,8 @@ class Command(BaseCommand):
                 published   = a_published,
                 created     = a_created,
                 site        = Sites.objects.get(pk=a_site),
-                modifier    = a_mod
+                modifier    = a_mod,
+                clicks      = 1
             )
             article.save()
         except Exception as e:

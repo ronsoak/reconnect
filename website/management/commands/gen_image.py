@@ -19,6 +19,7 @@ class Command(BaseCommand):
             "media/background/back4.png",
             "media/background/back5.png",
             "media/background/back6.png",
+            "media/background/back7.png",
         ]
 
         # Site query 

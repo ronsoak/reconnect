@@ -71,6 +71,7 @@ def FeatureArticle(request,id):
     if request.user.is_authenticated:
         a = Articles.objects.get(id = id)
         a.curated = True
+        a.clicks = a.clicks + 1
         a.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else: 

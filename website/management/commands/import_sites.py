@@ -1,4 +1,3 @@
-from tkinter.tix import Tree
 from typing import Any
 from django.core.management.base import BaseCommand
 import csv
@@ -14,9 +13,9 @@ class Command(BaseCommand):
                 i_name  = line[0]
                 i_url   = line[1]
                 i_feed  = line[2]
-                i_description   = line[4]
-                i_logo  = line[5]
-                i_modifier  = line[6]
+                i_description   = line[3]
+                i_logo  = line[4]
+                i_modifier  = line[5]
                 try:
                     new_site = Sites(
                         name        = i_name,
