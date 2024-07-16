@@ -44,7 +44,7 @@ class SiteAdmin(admin.ModelAdmin):
     search_fields = ['name']
     # Methods
     def get_ordering(self, request):
-        return ['-name']
+        return ['name']
     
     def hide_site(self, request, queryset):
         queryset.update(hidden = True)

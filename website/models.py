@@ -42,6 +42,13 @@ class Sites(models.Model):
         ordering = ['name']
         verbose_name = "Sites"
         verbose_name_plural = "Sites"
+        constraints = [models.UniqueConstraint(fields=["url"], name='unique_site_url')]
+        indexes = [
+            models.Index(fields=['hidden'], name='hidden_site_idx'),
+            models.Index(fields=['feed_type'], name='feed_type_idx'),
+            models.Index(fields=['feed'], name='feed_url_idx'),
+            models.Index(fields=['url'], name='url_idx'),
+        ]
     # Methods 
     def __str__(self):
         return self.name
