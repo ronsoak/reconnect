@@ -4,7 +4,7 @@ from django.views.generic.base import TemplateView #needed for robots
 
 urlpatterns = [
     path('',views.Home,{"filtr": 1},name='home'),
-    path('new',views.Home,{"filtr": 1}, name='new'),
+    path('latest',views.Home,{"filtr": 1}, name='latest'),
     path('popular',views.Home,{"filtr": 0}, name='popular'),
     path('curated',views.Home,{"filtr": 2}, name='curated'),
     path('random',views.Home,{"filtr": 3}, name='random'),
