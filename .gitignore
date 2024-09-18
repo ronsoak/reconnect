@@ -13,6 +13,8 @@ migrations/*
 manage.py
 *.pyc
 **/*.pyc
+venv/
+venv/*
 
 #DB 
 db.sqlite3
