@@ -27,3 +27,4 @@ python manage.py makemigrations website
 python3 manage.py createsuperuser
 
 python manage.py inspectdb
+

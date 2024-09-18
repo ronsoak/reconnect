@@ -13,8 +13,8 @@ migrations/*
 manage.py
 *.pyc
 **/*.pyc
-venv/
-venv/*
+.venv/
+.venv/*
 
 #DB 
 db.sqlite3
@@ -30,3 +30,4 @@ website/migrations/*
 website/migrations/*.py
 website/migrations/__pycache__/*
 website/__pycache__/*
+website/static/admin/

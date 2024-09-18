@@ -178,7 +178,7 @@ def RSS(request):
 # Sites
 # ===== ===== =====
 def More(request, st_id):
-    moreQuery = Articles.objects.filter(site__id=st_id,hidden = False, site_hide = False)[:500]
+    moreQuery = Articles.objects.filter(site__id=st_id,hidden = False, site_hide = False).order_by('-published')[:500]
     moreDetails = Sites.objects.filter(id=st_id, hidden = False).order_by(Lower('name'))
     moreList = Sites.objects.filter(hidden = False)
     context = {
