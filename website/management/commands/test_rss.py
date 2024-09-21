@@ -14,7 +14,7 @@ class Command(BaseCommand):
         # Fixes Feedparser not getting an SSL cert
         ssl._create_default_https_context=ssl._create_unverified_context 
 
-        siteUrl = "https://www.segasaturnshiro.com/feed/"
+        siteUrl = "https://rss.beehiiv.com/feeds/2WtWfTwjg3.xml"
         # Set Error Check to default
         error_check = False
 
