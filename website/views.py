@@ -25,13 +25,13 @@ def ContentQuery(filtr):
         # ----- -----
         # Filter View
         if f == 1: # Newest 
-            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('-published')[:100]
+            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('-published')[:200]
         elif f == 2: #Curated 
             content = query.filter(hidden=False,site_hide=False,curated=True).select_related("site").order_by('-published')[:20]
         elif f == 3: #Random 
-            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('?')[:100]
+            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('?')[:200]
         else: # Trending
-            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('-rank','-published')[:100]
+            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('-rank','-published')[:200]
         return(content)
 # ===== ===== =====
 # Vote for Article
@@ -85,7 +85,7 @@ class LatestArticles(Feed):
     description = "Newest Articles on Reconnect"
 
     def items(self):
-        return Articles.objects.filter(hidden=False,site_hide=False).order_by('-published')[:50]
+        return Articles.objects.filter(hidden=False,site_hide=False).order_by('-published')[:200]
 
     def item_title(self, item):
         return item.title
