@@ -25,7 +25,7 @@ def ContentQuery(filtr):
         # ----- -----
         # Filter View
         if f == 1: # Newest 
-            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('-published')[:200]
+            content = query.filter(hidden=False,site_hide=False).select_related("site").order_by('-pk')[:200]
         elif f == 2: #Curated 
             content = query.filter(hidden=False,site_hide=False,curated=True).select_related("site").order_by('-published')[:20]
         elif f == 3: #Random 
