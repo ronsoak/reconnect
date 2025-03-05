@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 import feedparser
 import requests
 import ssl
-from datetime import datetime
+from datetime import datetime, date, timedelta
 from zoneinfo import ZoneInfo
 from website.models import Sites, Logic, Articles
 from django.core import management
@@ -14,6 +14,11 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any):
         # Fixes Feedparser not getting an SSL cert
         ssl._create_default_https_context=ssl._create_unverified_context 
+
+        # Get date parameters 
+        today = date.today()
+        datestart = today
+        dateend = datestart - timedelta (days=91)
         
         # Gets the RSS identifier from the Logic Page
         rss_id = Logic.objects.get(category="METHOD", value = "RSS").pk
@@ -81,7 +86,10 @@ class Command(BaseCommand):
                                     post_image = lp.image
                                 except:
                                     post_image = str(logo)
-                                management.call_command("import_articles",c.title,c.link,post_image,str(pub_date),str(id))
+                                if pub_date > dateend:
+                                    management.call_command("import_articles",c.title,c.link,post_image,str(pub_date),str(id))
+                                else:
+                                    error_check = True 
                         error_check = True
             except RuntimeError:
                 self.stdout.write("Script ran too long")

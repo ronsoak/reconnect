@@ -61,5 +61,5 @@ class Command(BaseCommand):
             tdraw.fontmode = "L"
 
         # Save Image
-            bim.save(site_path)
+            bim.save(site_path, optimize=True, quality=50)
             
