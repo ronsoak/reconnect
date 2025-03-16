@@ -1,5 +1,6 @@
 # settings file
 settings.py
+.env
 
 # cache folders
 __pycache__/*

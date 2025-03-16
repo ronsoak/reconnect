@@ -75,6 +75,7 @@ class Articles(models.Model):
     hidden      = models.BooleanField(default=False, help_text="The article is hidden", verbose_name="Article Hidden")
     site_hide   = models.BooleanField(default=False, help_text="The parent site is hidden", verbose_name="Site Hidden")
     curated     = models.BooleanField(default=False, help_text="The article is curate", verbose_name="Article Curated")
+    bluesky     = models.BooleanField(default=False, help_text="The article has been posted to Bluesky", verbose_name="Article Posted to Bluesky")
     # Metadata
     class Meta:
         db_table = "articles"
