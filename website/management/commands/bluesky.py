@@ -12,6 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any):
         # query to get curated articles that havn't been posted already
         bquery = Articles.objects.filter(hidden=False, site_hide=False,curated=True, bluesky=False).select_related("site").order_by('-published')[:1]
+        bKey = os.getenv("BLUESKY_KEY")
         # if results are zero exit 
         if bquery.count() == 0: 
             quit() 
@@ -20,7 +21,7 @@ class Command(BaseCommand):
                 # start bluesky client  
                 client = Client()
                 # log in 
-                client.login('antranaut.com', os.getenv("BLUESKY_KEY"))
+                client.login('antranaut.com',bKey)
                 # Get query details
                 aTitle = b.title
                 aLink = b.url
