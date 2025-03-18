@@ -32,15 +32,15 @@ class Command(BaseCommand):
                 # Fixes issue with having an SSL cert
                 ssl._create_default_https_context=ssl._create_unverified_context 
 
-                # Get image thumbnail
                 try:
                     iPath = httpx.get(iURL).content
                     aThumb = client.upload_blob(iPath).blob
                 except:
-                    self.stdout.write("Image fetch failed")
-                    b.bluesky = True 
-                    b.save()
-                    quit() 
+                    self.stdout.write("Image fetch failed, using backup")
+                    with open('media/Images/reconnect_preview.png', 'rb') as ib:
+                        ibackup = ib.read()
+                        aThumb = client.upload_blob(ibackup).blob
+ 
                 # Start Text Builder 
                 text_builder = client_utils.TextBuilder()
                 text_builder.text('Reconnect Recommends: \n\n')
