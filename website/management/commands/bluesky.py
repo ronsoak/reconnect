@@ -69,7 +69,7 @@ class Command(BaseCommand):
                         title=aTitle,
                         description='This article has been curated by Reconnect, the games writing discovery platform.',
                         uri= aLink,
-                        thumb=aThumb,
+                        thumb=abackup,
                     )
                 )
                 try:
