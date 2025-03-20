@@ -74,7 +74,7 @@ class Command(BaseCommand):
                 )
                 try:
                     client.send_post(text=text_builder, embed=embed_external)
-                except
+                except:
                     client.send_post(text=text_builder, embed=embed_backup)
                 b.bluesky = True 
                 b.save()

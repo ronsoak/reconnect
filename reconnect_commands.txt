@@ -33,3 +33,4 @@ python -m pip install --upgrade pip
 
 #GIT
 git stash - stores any out of sync changes
+git stash drop 
