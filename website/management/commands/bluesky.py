@@ -32,14 +32,18 @@ class Command(BaseCommand):
                 # Fixes issue with having an SSL cert
                 ssl._create_default_https_context=ssl._create_unverified_context 
 
+                # load backup image
+                with open("media/Images/reconnect_preview.png", 'rb') as ib:
+                        ibackup = ib.read()
+                        abackup = client.upload_blob(ibackup).blob
+
                 try:
                     iPath = httpx.get(iURL).content
                     aThumb = client.upload_blob(iPath).blob
                 except:
                     self.stdout.write("Image fetch failed, using backup")
-                    with open('media/Images/reconnect_preview.png', 'rb') as ib:
-                        ibackup = ib.read()
-                        aThumb = client.upload_blob(ibackup).blob
+                    aThumb = abackup
+                    
  
                 # Start Text Builder 
                 text_builder = client_utils.TextBuilder()
@@ -58,6 +62,19 @@ class Command(BaseCommand):
                         thumb=aThumb,
                     )
                 )
-                client.send_post(text=text_builder, embed=embed_external)
+
+                # Backup linkcard 
+                embed_backup = models.AppBskyEmbedExternal.Main(
+                    external=models.AppBskyEmbedExternal.External(
+                        title=aTitle,
+                        description='This article has been curated by Reconnect, the games writing discovery platform.',
+                        uri= aLink,
+                        thumb=aThumb,
+                    )
+                )
+                try:
+                    client.send_post(text=text_builder, embed=embed_external)
+                except
+                    client.send_post(text=text_builder, embed=embed_backup)
                 b.bluesky = True 
                 b.save()
