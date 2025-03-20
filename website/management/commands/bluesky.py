@@ -38,6 +38,7 @@ class Command(BaseCommand):
                 with open("media/Images/reconnect_preview.png", 'rb') as ib:
                         ibackup = ib.read()
                         abackup = client.upload_blob(ibackup).blob
+                        ib.close()
 
                 try:
                     self.stdout.write("Trying to get image")
