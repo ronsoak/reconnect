@@ -30,14 +30,17 @@ class Command(BaseCommand):
                 self.stdout.write("values:"+aTitle+' '+aLink+' '+iURL) 
 
                 # Fixes issue with having an SSL cert
+                self.stdout.write("Setting SSL") 
                 ssl._create_default_https_context=ssl._create_unverified_context 
 
                 # load backup image
+                self.stdout.write("priming backup image")
                 with open("media/Images/reconnect_preview.png", 'rb') as ib:
                         ibackup = ib.read()
                         abackup = client.upload_blob(ibackup).blob
 
                 try:
+                    self.stdout.write("Trying to get image")
                     iPath = httpx.get(iURL).content
                     aThumb = client.upload_blob(iPath).blob
                 except:
@@ -73,8 +76,11 @@ class Command(BaseCommand):
                     )
                 )
                 try:
+                    self.stdout.write("Trying to post....")
                     client.send_post(text=text_builder, embed=embed_external)
                 except:
+                    self.stdout.write("Post failed, using backup post")
                     client.send_post(text=text_builder, embed=embed_backup)
+                self.stdout.write("Flipping flag")
                 b.bluesky = True 
                 b.save()
