@@ -40,8 +40,10 @@ class Command(BaseCommand):
                 #         abackup = client.upload_blob(ibackup).blob
                 #         ib.close()
 
+                self.stdout.write("Trying to get image")
                 try:
-                    self.stdout.write("Trying to get image")
+                    uResponse = httpx.get(iURL)
+                    uResponse.raise_for_status()
                     iPath = httpx.get(iURL).content
                     aThumb = client.upload_blob(iPath).blob
                 except:
@@ -49,7 +51,7 @@ class Command(BaseCommand):
                     rSite = httpx.get("https://www.reconnect.quest").content
                     aThumb = client.upload_blob(rSite).blob
                     
- 
+                                        
                 # Start Text Builder 
                 text_builder = client_utils.TextBuilder()
                 text_builder.text('Reconnect Recommends: \n\n')
