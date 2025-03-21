@@ -41,7 +41,7 @@ class Command(BaseCommand):
                     aThumb = client.upload_blob(iPath).blob
                 else:
                     self.stdout.write("Image URL not valid, using backup")
-                    rSite = httpx.get("https://www.reconnect.quest").content
+                    rSite = httpx.get("https://www.reconnect.quest/media/Images/reconnect_preview.png").content
                     aThumb = client.upload_blob(rSite).blob                    
                                         
                 # Start Text Builder 
@@ -62,24 +62,21 @@ class Command(BaseCommand):
                     )
                 )
 
-                # # Backup linkcard 
-                # embed_backup = models.AppBskyEmbedExternal.Main(
-                #     external=models.AppBskyEmbedExternal.External(
-                #         title=aTitle,
-                #         description='This article has been curated by Reconnect, the games writing discovery platform.',
-                #         uri= aLink,
-                #         thumb=abackup,
-                #     )
-                # )
-                self.stdout.write("Trying to post....")
-                client.send_post(text=text_builder, embed=embed_external)
+                # Backup linkcard 
+                embed_backup = models.AppBskyEmbedExternal.Main(
+                    external=models.AppBskyEmbedExternal.External(
+                        title=aTitle,
+                        description='This article has been curated by Reconnect, the games writing discovery platform.',
+                        uri= aLink,
+                    )
+                )
 
-                # try:
-                #     self.stdout.write("Trying to post....")
-                #     client.send_post(text=text_builder, embed=embed_external)
-                # except:
-                #     self.stdout.write("Post failed, using backup post")
-                #     client.send_post(text=text_builder, embed=embed_backup)
+                try:
+                    self.stdout.write("Trying to post....")
+                    client.send_post(text=text_builder, embed=embed_external)
+                except:
+                    self.stdout.write("Post failed, using backup post")
+                    client.send_post(text=text_builder, embed=embed_backup)
                 self.stdout.write("Flipping flag")
                 b.bluesky = True 
                 b.save()
