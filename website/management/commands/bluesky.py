@@ -33,24 +33,16 @@ class Command(BaseCommand):
                 self.stdout.write("Setting SSL") 
                 ssl._create_default_https_context=ssl._create_unverified_context 
 
-                # load backup image
-                self.stdout.write("priming backup image")
-                # with open("media/Images/reconnect_preview.png", 'rb') as ib:
-                #         ibackup = ib.read()
-                #         abackup = client.upload_blob(ibackup).blob
-                #         ib.close()
-
                 self.stdout.write("Trying to get image")
-                try:
-                    uResponse = httpx.get(iURL)
-                    uResponse.raise_for_status()
+                # validate url 
+                if iURL[:1] == 'h':
+                    self.stdout.write("Image URL valid")
                     iPath = httpx.get(iURL).content
                     aThumb = client.upload_blob(iPath).blob
-                except:
-                    self.stdout.write("Image fetch failed, using backup")
+                else:
+                    self.stdout.write("Image URL not valid, using backup")
                     rSite = httpx.get("https://www.reconnect.quest").content
-                    aThumb = client.upload_blob(rSite).blob
-                    
+                    aThumb = client.upload_blob(rSite).blob                    
                                         
                 # Start Text Builder 
                 text_builder = client_utils.TextBuilder()
